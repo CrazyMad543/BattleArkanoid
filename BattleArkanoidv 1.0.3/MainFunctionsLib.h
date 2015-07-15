@@ -1,0 +1,10 @@
+void Init();
+void Run();
+void OutputMap();
+int InputKey();
+void InitMap();
+bool Win();
+void InitLocationAll();
+bool GameOver();
+void CheckValue();
+bool ChoiceContinue(bool WinBool, bool GameOverBool);
