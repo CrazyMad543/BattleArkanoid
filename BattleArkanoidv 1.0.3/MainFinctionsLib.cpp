@@ -16,6 +16,7 @@ vector<MobsClass> Mobs(AmountMobs);
 char Map[N][M];
 bool GameOverVar = false;
 int AmountClicks = 0;
+int _MoveKeyCharacter;
 MainCharacter Character;
 
 int InputKey() {
@@ -74,8 +75,9 @@ void InitLocationAll() {
 }
 
 void Run() {
-    Character.MoveCharacter(Map);
+    _MoveKeyCharacter = Character.MoveCharacter(Map);
 	for (int i(0); i < Mobs.size(); i++) {
+		Mobs.at(i).Direction(_MoveKeyCharacter);
 		Mobs.at(i).MoveMobs(Map);
 	}
 	OutputMap();

@@ -20,7 +20,7 @@ void MainCharacter::InitLocationCharacter() {
 	CharacterY = RandomIntCharacter.getInt(0, 2);
 }
 
-void MainCharacter::MoveCharacter(char Map[20][30]) {
+int MainCharacter::MoveCharacter(char Map[20][30]) {
 	int MoveKey = InputKey();
 	switch (MoveKey) {
 		case 0: if (CharacterY > 0) CharacterY--; else CharacterY = 0; break;
@@ -30,6 +30,7 @@ void MainCharacter::MoveCharacter(char Map[20][30]) {
 		default: break;
 	}
 	Map[CharacterX][CharacterY] = MainCharacterIcon;
+	return MoveKey;
 }
 
 MainCharacter::MainCharacter() {

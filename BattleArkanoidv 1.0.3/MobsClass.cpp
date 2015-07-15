@@ -12,9 +12,10 @@ void MobsClass::InitLocationMobs() {
 	MobsY = RandomIntMobs.getInt(4, 28);
 }
 
-int MobsClass::Direction() {
-	DirectionMove = RandomIntMobs.getInt(0, 3);
-	return DirectionMove;
+void MobsClass::Direction(int MoveKeyCharacter) {
+	if (MoveKeyCharacter >= 0 && MoveKeyCharacter <= 3)
+		DirectionMove = RandomIntMobs.getInt(0, 3);
+	else DirectionMove = 4;
 }
 
 int MobsClass::ReturnMobsX() {
@@ -26,7 +27,7 @@ int MobsClass::ReturnMobsY() {
 }
 
 void MobsClass::MoveMobs(char Map[20][30]) {
-	switch (Direction()) {
+	switch (DirectionMove) {
 	case 0: if (MobsY > 0) MobsY--; else MobsY = 0; break;
 	case 1: if (MobsY < 28) MobsY++; else MobsY = 28; break;
 	case 2: if (MobsX > 0) MobsX--; else MobsX = 0; break;
