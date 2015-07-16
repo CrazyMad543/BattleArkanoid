@@ -48,10 +48,8 @@ void InitMap() {
 
 bool Win() {
 	bool CheckWin = false;
-	for (int i(0); i < N; i++) {
-		if (Map[i][29] != ' ')
-			CheckWin = true;
-	}
+	if (Character.ReturnCharacterY() == 29)
+		CheckWin = true;
 	return CheckWin;
 }
 
